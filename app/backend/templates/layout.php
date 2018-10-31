@@ -1,7 +1,10 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Akmon
- * Date: 30/10/2018
- * Time: 11:47
- */
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mon super site</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <?= $content ?>
+    </body>
+</html>
