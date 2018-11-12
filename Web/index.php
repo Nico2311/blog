@@ -2,7 +2,7 @@
 const DEFAULT_APP = 'Frontend';
 
 if (!isset($_GET['app']) || !file_exists(__DIR__.'/../App/'.$_GET['app'])) $_GET['app'] = DEFAULT_APP;
-echo $_GET ["app"];
+
 require( __DIR__.'/../lib/BlogFram/SplClassLoader.php');
 
 $BlogFramLoader = new SplClassLoader('BlogFram', __DIR__.'/../lib');
