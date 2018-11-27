@@ -1,6 +1,6 @@
 <h2>Connexion</h2>
 
-<form action="" method="post">
+<form action="index.php?app=Backend" method="post">
     <label>Pseudo</label>
     <input type="text" name="login" /><br />
 
