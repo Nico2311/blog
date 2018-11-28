@@ -28,11 +28,6 @@ class User
         return isset($_SESSION['auth']) && $_SESSION['auth'] === true;
     }
 
-    public function logout()
-    {
-       session_destroy();
-    }
-
     public function setAttribute($attr, $value)
     {
         $_SESSION[$attr] = $value;

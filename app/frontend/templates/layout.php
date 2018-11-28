@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title><?= isset($title) ? $title : 'Mon super site' ?></title>
+        <title><?= isset($title) ? $title : 'Billet simple pour l\'Alaska' ?></title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="/blog/Web/css/Envision.css" type="text/css" />
     </head>
     <body>
         <div id="wrap">
             <header>
-                <h1><a href="/blog/Web">Mon super site</a></h1>
-                <p>Comment ça, il n'y a presque rien ?</p>
+                <h1><a href="/blog/Web">Billet simple pour l'Alaska</a></h1>
+                <p>Ecrit par Jean Forteroche</p>
             </header>
             <nav>
                 <ul>
@@ -18,7 +18,7 @@
                     <?php if ($user->isAuthenticated()) { ?>
                         <li><a href="/blog/Web/admin/">Admin</a></li>
                         <li><a href="/blog/Web/admin/news-insert.html">Ajouter une news</a></li>
-                        <li><a href="<?php $user->logout()?>">Déconnection</a> </li>
+                        <li><a href=<?php  ?>>Déconnection</a> </li>
                     <?php } else { ?>
                         <li><a href="/blog/Web/admin/">S'identifier</a></li>
                     <?php } ?>
