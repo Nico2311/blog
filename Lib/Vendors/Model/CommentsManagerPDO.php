@@ -104,8 +104,12 @@ class CommentsManagerPDO extends CommentsManager
 
     public function signe($id)
     {
-        $q = $this->dao->exec('UPDATE comments SET signe = 1 WHERE id = :id');
-        $q->bindValue(':id',(int) $id, \PDO::PARAM_INT);
-        $q->execute();
+        $this->dao->exec('UPDATE comments SET signe = true WHERE id = '.(int) $id);
+    }
+    public function news($id)
+    {
+        $n = $this->dao->query('SELECT news FROM comments WHERE id='.(int)$id)->fetch();
+      
+        return $n['news'];
     }
 }

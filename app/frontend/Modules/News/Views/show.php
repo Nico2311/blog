@@ -21,7 +21,7 @@ foreach ($comments as $comment)
     ?>
     <fieldset>
         <legend>
-            Posté par <strong><?= htmlspecialchars($comment['auteur']) ?></strong> le <?= $comment['date']->format('d/m/Y à H\hi') ?>   <a href="/blog/Web/signale"><img src="/blog/Web/images/warning.png" alt="Signaler"></a>
+            Posté par <strong><?= htmlspecialchars($comment['auteur']) ?></strong> le <?= $comment['date']->format('d/m/Y à H\hi') ?>   <a href="/blog/Web/signale-<?= $comment['id'] ?>.html"><img src="/blog/Web/images/warning.png" alt="Signaler"></a>
         </legend>
         <p><?= nl2br(htmlspecialchars($comment['contenu'])) ?></p>
     </fieldset>

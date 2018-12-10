@@ -86,11 +86,11 @@ class NewsController extends BackController
     }
     public function executeSignale(HTTPRequest $request)
     {
-        $id = $request ->getData('id');
-        $this->managers->getManagerOf('comments')->signe($id);
-        //$this->app->user()->setFlash('Le commentaire a bien était signalé !');
-        //$this->app->httpResponse()->redirect('news-'.$request->getData('news').'.html');
-
+        $id = $request->getData('id');
+        $this->managers->getManagerOf('Comments')->signe($id);
+        $this->app->user()->setFlash('Le commentaire a bien était signalé !');
+        $news = $this->managers->getManagerOf('Comments')->news($id);
+        $this->app->httpResponse()->redirect('news-'.$news.'.html');
 
     }
 }

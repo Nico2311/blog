@@ -84,8 +84,14 @@ abstract class CommentsManager extends Manager
     abstract public function get($id);
 
     /**
-     * Méthode permttant de signalé un commentaire.
+     * Méthode permettant de signalé un commentaire.
      * @return boolean
      */
     abstract public function signe($id);
+
+    /**
+     * Méthode permettant d'obtenir un numero de news
+     * @return int
+     */
+    abstract public function news($id);
 }
