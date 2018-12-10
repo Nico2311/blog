@@ -16,7 +16,7 @@ class NewsManagerPDO extends NewsManager
         $requete->execute();
     }
 
-    public function count()
+    public function countNews()
     {
         return $this->dao->query('SELECT COUNT(*) FROM news')->fetchColumn();
     }
@@ -49,6 +49,7 @@ class NewsManagerPDO extends NewsManager
         $requete->closeCursor();
 
         return $listeNews;
+
     }
 
     public function getUnique($id)

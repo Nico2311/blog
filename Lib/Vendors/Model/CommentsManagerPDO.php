@@ -18,6 +18,16 @@ class CommentsManagerPDO extends CommentsManager
         $comment->setId($this->dao->lastInsertId());
     }
 
+    public function countComm()
+    {
+        return $this->dao->query('SELECT COUNT(*) FROM comments')->fetchColumn();
+    }
+
+    public function countSigne()
+    {
+        return $this->dao->query('SELECT COUNT(*) FROM comments WHERE signe="1"')->fetchColumn();
+    }
+
     public function delete($id)
     {
         $this->dao->exec('DELETE FROM comments WHERE id = '.(int) $id);
@@ -27,6 +37,25 @@ class CommentsManagerPDO extends CommentsManager
     {
         $this->dao->exec('DELETE FROM comments WHERE news = '.(int) $news);
     }
+    public function getList()
+    {
+        $sql = 'SELECT id, news, auteur, contenu, date, signe FROM comments WHERE signe="1" ORDER BY id DESC';
+
+        $q = $this->dao->query($sql);
+        $q->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Comment');
+
+        $comments = $q->fetchAll();
+
+        foreach ($comments as $comment)
+        {
+            $comment->setDate(new \DateTime($comment->date()));
+        }
+
+        $q->closeCursor();
+
+        return $comments;
+
+    }
 
     public function getListOf($news)
     {
@@ -35,7 +64,7 @@ class CommentsManagerPDO extends CommentsManager
             throw new \InvalidArgumentException('L\'identifiant de la news passé doit être un nombre entier valide');
         }
 
-        $q = $this->dao->prepare('SELECT id, news, auteur, contenu, date FROM comments WHERE news = :news');
+        $q = $this->dao->prepare('SELECT id, news, auteur, contenu, date, signe FROM comments WHERE news = :news');
         $q->bindValue(':news', $news, \PDO::PARAM_INT);
         $q->execute();
 
@@ -71,5 +100,12 @@ class CommentsManagerPDO extends CommentsManager
         $q->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Comment');
 
         return $q->fetch();
+    }
+
+    public function signe($id)
+    {
+        $q = $this->dao->exec('UPDATE comments SET signe = 1 WHERE id = :id');
+        $q->bindValue(':id',(int) $id, \PDO::PARAM_INT);
+        $q->execute();
     }
 }

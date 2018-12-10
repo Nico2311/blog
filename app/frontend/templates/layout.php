@@ -16,11 +16,12 @@
                     <li><a href="/blog/Web">Accueil</a></li>
 
                     <?php if ($user->isAuthenticated()) { ?>
-                        <li><a href="/blog/Web/admin/">Admin</a></li>
+                        <li><a href="/blog/Web/admin/news">Nouvelles</a></li>
+                        <li><a href="/blog/Web/admin/comm">Commentaire</a></li>
                         <li><a href="/blog/Web/admin/news-insert.html">Ajouter une news</a></li>
-                        <li><a href=<?php  ?>>Déconnection</a> </li>
+                        <li><a href="/blog/Web/admin/logout">Déconnection</a> </li>
                     <?php } else { ?>
-                        <li><a href="/blog/Web/admin/">S'identifier</a></li>
+                        <li><a href="/blog/Web/admin/news">S'identifier</a></li>
                     <?php } ?>
                 </ul>
             </nav>

@@ -8,7 +8,8 @@ class Comment extends Entity
     protected $news,
         $auteur,
         $contenu,
-        $date;
+        $date,
+        $signe;
 
     const AUTEUR_INVALIDE = 1;
     const CONTENU_INVALIDE = 2;
@@ -66,5 +67,9 @@ class Comment extends Entity
     public function date()
     {
         return $this->date;
+    }
+    public function signe()
+    {
+        return $this->signe;
     }
 }

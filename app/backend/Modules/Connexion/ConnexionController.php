@@ -18,12 +18,17 @@ class ConnexionController extends BackController
             if ($login == $this->app->config()->get('login') && $password == $this->app->config()->get('pass'))
             {
                 $this->app->user()->setAuthenticated(true);
-                $this->app->httpResponse()->redirect('.');
+                $this->app->httpResponse()->redirect('/blog/Web/admin/news');
             }
             else
             {
                 $this->app->user()->setFlash('Le pseudo ou le mot de passe est incorrect.');
             }
         }
+    }
+    public function executeLogout(HTTPRequest $request)
+    {
+        session_destroy();
+            $this->app->httpResponse()->redirect('/blog/Web');
     }
 }

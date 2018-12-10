@@ -14,6 +14,18 @@ abstract class CommentsManager extends Manager
     abstract protected function add(Comment $comment);
 
     /**
+     * Méthode renvoyant le nombre de commentaire total.
+     * @return int
+     */
+    abstract public function countComm();
+
+    /**
+     * Méthode renvoyant le nombre de commentaire signalé.
+     * @return int
+     */
+    abstract public function countSigne();
+
+    /**
      * Méthode permettant de supprimer un commentaire.
      * @param $id L'identifiant du commentaire à supprimer
      * @return void
@@ -45,6 +57,12 @@ abstract class CommentsManager extends Manager
     }
 
     /**
+     * Méthode retournant une liste de commentaire demandée.
+     * @return array La liste des commentaire. Chaque entrée est une instance de commentaire.
+     */
+    abstract public function getList();
+
+    /**
      * Méthode permettant de récupérer une liste de commentaires.
      * @param $news La news sur laquelle on veut récupérer les commentaires
      * @return array
@@ -64,4 +82,10 @@ abstract class CommentsManager extends Manager
      * @return Comment
      */
     abstract public function get($id);
+
+    /**
+     * Méthode permttant de signalé un commentaire.
+     * @return boolean
+     */
+    abstract public function signe($id);
 }

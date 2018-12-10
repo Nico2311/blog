@@ -11,16 +11,15 @@ class NewsController extends BackController
 {
     public function executeIndex(HTTPRequest $request)
     {
-        $nombreNews = $this->app->config()->get('nombre_news');
         $nombreCaracteres = $this->app->config()->get('nombre_caracteres');
 
         // On ajoute une définition pour le titre.
-        $this->page->addVar('title', 'Liste des '.$nombreNews.' dernières news');
+        $this->page->addVar('title', 'Liste des episodes');
 
         // On récupère le manager des news.
         $manager = $this->managers->getManagerOf('News');
 
-        $listeNews = $manager->getList(0, $nombreNews);
+        $listeNews = $manager->getList();
 
         foreach ($listeNews as $news)
         {
@@ -84,5 +83,14 @@ class NewsController extends BackController
         $this->page->addVar('comment', $comment);
         $this->page->addVar('form', $form->createView());
         $this->page->addVar('title', 'Ajout d\'un commentaire');
+    }
+    public function executeSignale(HTTPRequest $request)
+    {
+        $id = $request ->getData('id');
+        $this->managers->getManagerOf('comments')->signe($id);
+        //$this->app->user()->setFlash('Le commentaire a bien était signalé !');
+        //$this->app->httpResponse()->redirect('news-'.$request->getData('news').'.html');
+
+
     }
 }

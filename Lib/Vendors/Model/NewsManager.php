@@ -36,7 +36,7 @@ abstract class NewsManager extends Manager
      * Méthode renvoyant le nombre de news total.
      * @return int
      */
-    abstract public function count();
+    abstract public function countNews();
 
     /**
      * Méthode permettant de supprimer une news.
