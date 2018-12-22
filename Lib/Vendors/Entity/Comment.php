@@ -68,8 +68,8 @@ class Comment extends Entity
     {
         return $this->date;
     }
-    public function signe()
+    public function reportOn()
     {
-        return $this->signe;
+        return $this->reportOn;
     }
 }

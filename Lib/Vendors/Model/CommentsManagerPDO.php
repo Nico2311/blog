@@ -23,9 +23,9 @@ class CommentsManagerPDO extends CommentsManager
         return $this->dao->query('SELECT COUNT(*) FROM comments')->fetchColumn();
     }
 
-    public function countSigne()
+    public function countReport()
     {
-        return $this->dao->query('SELECT COUNT(*) FROM comments WHERE signe="1"')->fetchColumn();
+        return $this->dao->query('SELECT COUNT(*) FROM comments WHERE report="1"')->fetchColumn();
     }
 
     public function delete($id)
@@ -39,7 +39,7 @@ class CommentsManagerPDO extends CommentsManager
     }
     public function getList()
     {
-        $sql = 'SELECT id, news, auteur, contenu, date, signe FROM comments WHERE signe="1" ORDER BY id DESC';
+        $sql = 'SELECT id, news, auteur, contenu, date, report FROM comments WHERE report="1" ORDER BY id DESC';
 
         $q = $this->dao->query($sql);
         $q->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Comment');
@@ -64,7 +64,7 @@ class CommentsManagerPDO extends CommentsManager
             throw new \InvalidArgumentException('L\'identifiant de la news passé doit être un nombre entier valide');
         }
 
-        $q = $this->dao->prepare('SELECT id, news, auteur, contenu, date, signe FROM comments WHERE news = :news');
+        $q = $this->dao->prepare('SELECT id, news, auteur, contenu, date, report FROM comments WHERE news = :news');
         $q->bindValue(':news', $news, \PDO::PARAM_INT);
         $q->execute();
 
@@ -102,14 +102,20 @@ class CommentsManagerPDO extends CommentsManager
         return $q->fetch();
     }
 
-    public function signe($id)
+    public function reportOn($id)
     {
-        $this->dao->exec('UPDATE comments SET signe = true WHERE id = '.(int) $id);
+        $this->dao->exec('UPDATE comments SET report = true WHERE id = '.(int) $id);
     }
+
+    public function reportOff($id)
+    {
+        $this->dao->exec('UPDATE comments SET report = false WHERE id = '.(int) $id);
+    }
+
     public function news($id)
     {
         $n = $this->dao->query('SELECT news FROM comments WHERE id='.(int)$id)->fetch();
-      
+
         return $n['news'];
     }
 }

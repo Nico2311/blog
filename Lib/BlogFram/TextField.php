@@ -16,7 +16,11 @@ class TextField extends Field
             $widget .= $this->errorMessage.'<br />';
         }
 
-        $widget .= '<label>'.$this->label.'</label><textarea name="'.$this->name.'"';
+        $widget .= '<label>'.$this->label.'</label>
+                   <div id="borderNew"><input type="button" value="G" style="font-weight:bold;" onclick="commande(\'bold\');"/>
+                    <input type="button" value="I" style="font-style:italic;" onclick="commande(\'italic\');"/>
+                    <input type="button" value="S" style="text-decoration:underline;" onclick="commande(\'underline\');"/></div>   
+                    <div id="editeur" contentEditable name="'.$this->name.'"';
 
         if (!empty($this->cols))
         {
@@ -35,7 +39,7 @@ class TextField extends Field
             $widget .= htmlspecialchars($this->value);
         }
 
-        return $widget.'</textarea>';
+        return $widget.'</div>';
     }
 
     public function setCols($cols)

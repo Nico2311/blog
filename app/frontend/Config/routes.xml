@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <routes>
     <route url="/blog/Web/" module="News" action="index" />
-    <route url="/blog/Web/signale-([0-9]+)\.html" module="News" action="signale" vars="id" />
+    <route url="/blog/Web/reportOn-([0-9]+)\.html" module="News" action="reportOn" vars="id" />
     <route url="/blog/Web/news-([0-9]+)\.html" module="News" action="show" vars="id"/>
     <route url="/blog/Web/commenter-([0-9]+)\.html" module="News" action="insertComment" vars="news" />
 </routes>

@@ -23,7 +23,7 @@ abstract class CommentsManager extends Manager
      * Méthode renvoyant le nombre de commentaire signalé.
      * @return int
      */
-    abstract public function countSigne();
+    abstract public function countReport();
 
     /**
      * Méthode permettant de supprimer un commentaire.
@@ -85,9 +85,17 @@ abstract class CommentsManager extends Manager
 
     /**
      * Méthode permettant de signalé un commentaire.
+     * @param $id L'identifiant du commentaire
      * @return boolean
      */
-    abstract public function signe($id);
+    abstract public function reportOn($id);
+
+    /**
+     * Méthode permettant d'enlevé un signalement.
+     * @param $id L'identifiant du commentaire
+     * @return boolean
+     */
+    abstract public function reportOff($id);
 
     /**
      * Méthode permettant d'obtenir un numero de news

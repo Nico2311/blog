@@ -13,9 +13,17 @@ class CommentsController extends BackController
         $manager = $this->managers->getManagerOf('Comments');
 
         $this->page->addVar('nombreComm', $manager->countComm());
-        $this->page->addVar('nombreSigne', $manager->countSigne());
+        $this->page->addVar('nombreReport', $manager->countReport());
 
         $comments = $manager->getList();
         $this->page->addVar('comments', $comments);
+    }
+    public function executeReportOff(HTTPRequest $request)
+    {
+        $id = $request->getData('id');
+        $this->managers->getManagerOf('Comments')->reportOff($id);
+        $this->app->user()->setFlash('Le signalement du commentaire a été enlevé !');
+
+        $this->app->httpResponse()->redirect('/blog/Web/admin/comm');
     }
 }

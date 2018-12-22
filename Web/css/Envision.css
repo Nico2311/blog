@@ -15,10 +15,11 @@
 * { margin: 0; padding: 0; outline: 0 }
 
 body {
-	background: #CCC;
+	background : url("../images/1.jpg");
 	font: 70%/1.5em Verdana, Tahoma, arial, sans-serif;
 	color: #555; 
 	text-align: center;
+
 }
 
 /* links */
@@ -62,10 +63,11 @@ img.float-right {
 img.float-left {
   margin: 5px 10px 10px 0px;
 }
-
 h1, h2, h3, p {
 	padding: 10px;		
 	margin: 0;
+	max-width: 720px;
+	overflow-wrap: break-word;
 }
 ul, ol {
 	margin: 5px 20px;
@@ -97,7 +99,7 @@ blockquote {
 /* start - table */
 table {
 	border-collapse: collapse;
-	margin: 10px;	
+	margin: auto;
 }
 th strong {
 	color: #fff;
@@ -122,8 +124,12 @@ td {
 	padding-left: 5px;
 	padding-right: 5px;
 	border-left: 1px solid #FFF;
-	border-bottom: solid 1px #ffffff;
+	border-top: 1px solid #93BC0C;
     text-align: center;
+}
+#idComment{
+	max-width: 400px;
+	overflow-wrap: break-word;
 }
 form td {
     text-align: left;
@@ -156,13 +162,15 @@ input {
 	font: normal 1em Verdana, sans-serif;
 	color:#777;
 }
-textarea {
+#editeur {
 	padding:2px;
+	width: 98%;
 	font: normal 1em Verdana, sans-serif;
+	height: 200px;
 	border:1px solid #eee;
-	height:100px;
-	display:block;
+	padding: 5px;
 	color:#777;
+	overflow: auto;
 }
 input.button { 
 	font: bold 12px Arial, Sans-serif; 
@@ -218,7 +226,7 @@ header {
 	height: 103px;
 	background: #CCC url(../images/header.jpg) no-repeat center top;
 	padding: 0;	
-	color: #FFF;	
+	color: #FFF;
 }
 header h1 a {
 	position: absolute;
@@ -299,25 +307,22 @@ nav ul li#current a {
 /* Main Column */
 #main {
 	float: left;
-	width: 70%;
+	width: 98%;
 	padding: 0; margin: 5px 0 0 5px;
 	display: inline;
 }
 #main h2 {
 	margin-top: 10px;
 	font: Bold 140% 'Trebuchet MS', Tahoma, Sans-serif;
-	color: #88ac0b; 
-	padding: 5px 0 5px 25px; 	
-	border-bottom: 1px solid #EFF0F1;
-	background: #FFF url(../images/square-green.png) no-repeat 3px 50%;	
+	padding: 5px 0 5px 0px;
 	text-transform: none;
+	text-align: center;
+	border-bottom: 1px solid #c2e167;
 }
 #main h2 a {
-	background: none;
 	color: #88ac0b;
 	text-decoration: none;
 }
-
 #main ul li {
 	list-style-image: url(../images/bullet.gif);
 }
@@ -347,7 +352,7 @@ nav ul li#current a {
 	width: 26.5%;
 	padding: 0; margin: 0;	
 	color: #68774A;	
-}	
+}
 #sidebar h3 {
 	margin-top: 10px;
 	padding: 5px 5px; 
@@ -409,3 +414,13 @@ footer a {
 
 .middle { vertical-align: middle; }
 
+/* Other */
+.textCenter{
+	text-align: center;
+}
+.textLeft{
+	text-align: left;
+}
+.textRight{
+	text-align: right;
+}
