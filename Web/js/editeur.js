@@ -1,11 +1,14 @@
-function commande(nom, argument){
-
-    if (typeof argument === 'undefined') {
-
-        argument = '';
-
+// Prevent jQuery UI dialog from blocking focusin
+$(document).on('focusin', function(e) {
+    if ($(e.target).closest(".mce-window, .moxman-window").length) {
+        e.stopImmediatePropagation();
     }
+});
 
-    document.execCommand(nom, false, argument);
+// Open dialog and add tinymce to it
 
-}
+
+$('textarea').tinymce({
+    toolbar: 'link',
+    plugins: 'link'
+});

@@ -36,7 +36,7 @@ a:hover {
 
 /* headers */
 h1, h2, h3 {
-	font-family: 'Trebuchet MS', Tahoma, Sans-serif;	 		
+	font-family: 'Trebuchet MS', Tahoma, Sans-serif;
 }
 h1 {
 	font-size: 150%;	
@@ -127,10 +127,7 @@ td {
 	border-top: 1px solid #93BC0C;
     text-align: center;
 }
-#idComment{
-	max-width: 400px;
-	overflow-wrap: break-word;
-}
+
 form td {
     text-align: left;
 }
@@ -163,14 +160,13 @@ input {
 	color:#777;
 }
 #editeur {
-	padding:2px;
 	width: 98%;
 	font: normal 1em Verdana, sans-serif;
 	height: 200px;
 	border:1px solid #eee;
 	padding: 5px;
-	color:#777;
 	overflow: auto;
+	background: white;
 }
 input.button { 
 	font: bold 12px Arial, Sans-serif; 
@@ -185,7 +181,7 @@ input.button {
 /* search form */
 .searchform {
 	background-color: transparent;
-	border: none;	
+	border: none;
 	margin: 0; padding: 5px 0 15px 0;	
 	width: 190px;	
 }
@@ -423,4 +419,46 @@ footer a {
 }
 .textRight{
 	text-align: right;
+}
+
+/*Commentaires*/
+
+#legende
+{
+	color: #93BC0C;
+	font-weight: bold;
+}
+
+#listComm
+{
+	display: flex;
+	flex-direction:column;
+	border-top: #93BC0C 1px solid;
+	padding: 5px 0 5px 0;
+}
+#list1
+{
+	display: flex;
+	justify-content: space-around;
+	padding-bottom: 5px;
+
+}
+#list2
+{
+	display: flex;
+	justify-content: center;
+
+}
+#list3
+{
+	display: flex;
+}
+#list3 a
+{
+	margin-left: 10px;
+}
+#list4
+{
+	display: flex;
+	flex-direction: column;
 }

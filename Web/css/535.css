@@ -1,0 +1,52 @@
+header h1 a
+{
+    font-size: 1.6em;
+    position: relative;
+    top: 20px;
+    left: 0;
+}
+header p
+{
+    position: relative;
+    top: 15px;
+    left: 0;
+}
+nav ul
+{
+
+    margin: auto;
+}
+nav ul li a
+{
+    padding: 0 5px;
+}
+fieldset p
+{
+    width: 270px;
+}
+#dateModif
+{
+    display:none;
+}
+#list1
+{
+    flex-direction: column;
+    text-align: center;
+}
+#list1 p
+{
+    padding: 3px;
+}
+#list2 p
+{
+    max-width: 290px;
+}
+#list3
+{
+    justify-content: center;
+}
+form
+{
+    margin: 0;
+}
+

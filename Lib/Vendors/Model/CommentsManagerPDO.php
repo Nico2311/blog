@@ -64,7 +64,7 @@ class CommentsManagerPDO extends CommentsManager
             throw new \InvalidArgumentException('L\'identifiant de la news passé doit être un nombre entier valide');
         }
 
-        $q = $this->dao->prepare('SELECT id, news, auteur, contenu, date, report FROM comments WHERE news = :news');
+        $q = $this->dao->prepare('SELECT id, news, auteur, contenu, date, report FROM comments WHERE news = :news ORDER BY id DESC');
         $q->bindValue(':news', $news, \PDO::PARAM_INT);
         $q->execute();
 
