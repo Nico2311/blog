@@ -30,12 +30,16 @@ class CommentsManagerPDO extends CommentsManager
 
     public function delete($id)
     {
-        $this->dao->exec('DELETE FROM comments WHERE id = '.(int) $id);
+        $q = $this->dao->prepare('DELETE FROM comments WHERE id = :id');
+        $q->bindValue(':id', (int) $id, \PDO::PARAM_INT);
+        $q->execute();
     }
 
     public function deleteFromNews($news)
     {
-        $this->dao->exec('DELETE FROM comments WHERE news = '.(int) $news);
+        $q = $this->dao->prepare('DELETE FROM comments WHERE news = :news');
+        $q->bindValue(':news', (int) $news, \PDO::PARAM_INT);
+        $q->execute();
     }
     public function getList()
     {
@@ -102,16 +106,13 @@ class CommentsManagerPDO extends CommentsManager
         return $q->fetch();
     }
 
-    public function reportOn($id)
+    public function report( $id, $report)
     {
-        $this->dao->exec('UPDATE comments SET report = true WHERE id = '.(int) $id);
+        $q = $this->dao->prepare('UPDATE comments SET report = :report WHERE id =  :id');
+        $q->bindValue(':id', (int) $id, \PDO::PARAM_INT);
+        $q->bindValue(':report', $report, \PDO::PARAM_BOOL);
+        $q->execute();
     }
-
-    public function reportOff($id)
-    {
-        $this->dao->exec('UPDATE comments SET report = false WHERE id = '.(int) $id);
-    }
-
     public function news($id)
     {
         $n = $this->dao->query('SELECT news FROM comments WHERE id='.(int)$id)->fetch();

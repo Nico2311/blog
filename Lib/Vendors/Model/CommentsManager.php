@@ -84,18 +84,12 @@ abstract class CommentsManager extends Manager
     abstract public function get($id);
 
     /**
-     * Méthode permettant de signalé un commentaire.
+     * Méthode permettant de signalé ou d'enlevé un signalement.
      * @param $id L'identifiant du commentaire
-     * @return boolean
+     * @param $report boolean
+     * @return boolean and int
      */
-    abstract public function reportOn($id);
-
-    /**
-     * Méthode permettant d'enlevé un signalement.
-     * @param $id L'identifiant du commentaire
-     * @return boolean
-     */
-    abstract public function reportOff($id);
+    abstract public function report( $id, $report);
 
     /**
      * Méthode permettant d'obtenir un numero de news

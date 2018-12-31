@@ -21,7 +21,7 @@ class CommentsController extends BackController
     public function executeReportOff(HTTPRequest $request)
     {
         $id = $request->getData('id');
-        $this->managers->getManagerOf('Comments')->reportOff($id);
+        $this->managers->getManagerOf('Comments')->report( $id, false);
         $this->app->user()->setFlash('Le signalement du commentaire a été enlevé !');
 
         $this->app->httpResponse()->redirect('/blog/Web/admin/comm');
