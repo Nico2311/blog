@@ -25,7 +25,7 @@ body {
 /* links */
 a, a:visited {
 	text-decoration: none;
-	color: #2180BC;
+	color: black;
 	background: inherit;
 }
 a:hover {
