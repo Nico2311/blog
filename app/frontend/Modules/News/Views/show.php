@@ -6,13 +6,13 @@
     <p class="textRight" "><small><em>Modifiée le <?= $news['dateModif']->format('d/m/Y à H\hi') ?></em></small></p>
 <?php } ?>
 
-<p><a href="commenter-<?= $news['id'] ?>.html">Ajouter un commentaire</a></p>
+<p><a href="commenter-<?= $news['id'] ?>.html" class="green">Ajouter un commentaire</a></p>
 
 <?php
 if (empty($comments))
 {
     ?>
-    <p>Aucun commentaire n'a encore été posté. Soyez le premier à en laisser un !</p>
+    <p>Aucun commentaire n'a encore été posté. Soyez le premier à en laisser un !</p><br>
     <?php
 }
 
@@ -28,5 +28,10 @@ foreach ($comments as $comment)
     <?php
 }
 ?>
-
-<p><a href="commenter-<?= $news['id'] ?>.html">Ajouter un commentaire</a></p>
+<?php
+if (!empty($comments)) {
+    ?>
+    <p><a href="commenter-<?= $news['id'] ?>.html" class="green">Ajouter un commentaire</a></p>
+    <?php
+}
+?>

@@ -7,8 +7,10 @@
         <link rel="stylesheet" href="/blog/Web/css/Envision.css" type="text/css" />
         <link rel="stylesheet" type="text/css" media="all and (max-width: 778px)" href="/blog/Web/css/536-778.css"/>
         <link rel="stylesheet" type="text/css" media="all and (max-width: 535px)" href="/blog/Web/css/535.css"/>
-        <script type="text/javascript" src="/blog/Web/js/editeur.js"></script>
+        <?php if ($user->isAuthenticated()) { ?>
+        <script src="/blog/Web/js/tinymce.min.js"></script>
         <script>tinymce.init({ selector:'textarea' });</script>
+        <?php } ?>
     </head>
     <body>
         <div id="wrap">

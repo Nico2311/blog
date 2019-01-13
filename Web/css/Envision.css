@@ -159,6 +159,9 @@ input {
 	font: normal 1em Verdana, sans-serif;
 	color:#777;
 }
+textarea {
+	border:1px solid #eee;
+}
 #editeur {
 	width: 98%;
 	font: normal 1em Verdana, sans-serif;
@@ -419,6 +422,9 @@ footer a {
 }
 .textRight{
 	text-align: right;
+}
+.green{
+	color: #93BC0C;
 }
 
 /*Commentaires*/
